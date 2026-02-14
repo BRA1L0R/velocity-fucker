@@ -1,0 +1,12 @@
+[package]
+name = "velocity-fuck"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.101"
+futures = "0.3.31"
+netherite = { path = "../netherite-rs/netherite" }
+tokio = { version = "1.49.0", features = ["full"] }
+tokio-util = { version = "0.7.18", features = ["full"] }
+uuid-mc = "0.3.0"

@@ -1,0 +1,28 @@
+name: Build and Test
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true  
+
+      - name: Lint
+        run: |
+          cargo fmt -- --check
+          cargo clippy -- -D warnings          
+
+      - name: Test
+        run: |
+          cargo check
+          cargo test --all          
+
+      - name: Build
+        run: |
+          cargo build --release
